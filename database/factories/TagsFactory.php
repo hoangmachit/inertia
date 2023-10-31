@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\NewsList>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Tags>
  */
-class NewsListFactory extends Factory
+class TagsFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -16,9 +16,9 @@ class NewsListFactory extends Factory
      */
     public function definition(): array
     {
-        $name = fake()->name();
+        $name = fake()->unique()->name();
+        $arrayType = ['product', 'blog'];
         return [
-            'photo_id' => null,
             'slug_vi' => str()->slug($name),
             'slug_en' => str()->slug($name),
             'name_vi' => $name,
@@ -29,7 +29,7 @@ class NewsListFactory extends Factory
             'content_en' => fake()->text(100),
             'sort' => 1,
             'status' => 1,
-            'type' => 'blog',
+            'type' => $arrayType[rand(0, 1)],
         ];
     }
 }

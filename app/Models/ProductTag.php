@@ -13,7 +13,7 @@ class ProductTag extends Model
      * @var array
      */
     protected $fillable = [
-        'news_id',
+        'product_id',
         'tag_id',
     ];
 }

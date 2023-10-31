@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('product_subs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('photo_id')->nullable()->constrained('files', 'id');
-            $table->foreignId('product_list_id')->constrained('product_lists', 'id');
-            $table->foreignId('product_cat_id')->constrained('product_cats', 'id');
-            $table->foreignId('product_item_id')->constrained('product_items', 'id');
+            $table->foreignId('product_list_id')->nullable()->constrained('product_lists', 'id');
+            $table->foreignId('product_cat_id')->nullable()->constrained('product_cats', 'id');
+            $table->foreignId('product_item_id')->nullable()->constrained('product_items', 'id');
             $table->string('name_vi')->nullable();
             $table->string('name_en')->nullable();
             $table->string('desc_vi')->nullable();

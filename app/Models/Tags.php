@@ -13,7 +13,6 @@ class Tags extends Model
      * @var array
      */
     protected $fillable = [
-        'photo_id',
         'slug_vi',
         'slug_en',
         'name_vi',

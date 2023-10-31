@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\ProductVariant;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -23,6 +25,23 @@ class DatabaseSeeder extends Seeder
             LanguageSeeder::class,
             RolePermissionSeeder::class,
         ]);
+        \App\Models\Tags::factory()->count(20)->create();
+        \App\Models\User::factory()->count(5)->create();
         \App\Models\Customer::factory()->count(25)->create();
+        \App\Models\NewsList::factory()->count(5)->create();
+        \App\Models\NewsCat::factory()->count(5)->create();
+        \App\Models\NewsItem::factory()->count(5)->create();
+        \App\Models\NewsSub::factory()->count(5)->create();
+        \App\Models\News::factory()->count(5)->create();
+        \App\Models\ProductList::factory()->count(5)->create();
+        \App\Models\ProductCat::factory()->count(5)->create();
+        \App\Models\ProductItem::factory()->count(5)->create();
+        \App\Models\ProductSub::factory()->count(5)->create();
+        \App\Models\Product::factory()->count(5)->create();
+        $this->call([
+            ProductVariantSeeder::class,
+            ProductTagSeeder::class,
+            NewsTagSeeder::class,
+        ]);
     }
 }

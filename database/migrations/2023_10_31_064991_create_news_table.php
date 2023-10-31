@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('news', function (Blueprint $table) {
             $table->id();
             $table->foreignId('photo_id')->nullable()->constrained('files', 'id');
-            $table->foreignId('news_list_id')->constrained('news_lists', 'id');
-            $table->foreignId('news_cat_id')->constrained('news_cats', 'id');
-            $table->foreignId('news_item_id')->constrained('news_items', 'id');
-            $table->foreignId('news_sub_id')->constrained('news_subs', 'id');
+            $table->foreignId('news_list_id')->nullable()->constrained('news_lists', 'id');
+            $table->foreignId('news_cat_id')->nullable()->constrained('news_cats', 'id');
+            $table->foreignId('news_item_id')->nullable()->constrained('news_items', 'id');
+            $table->foreignId('news_sub_id')->nullable()->constrained('news_subs', 'id');
             $table->string('name_vi')->nullable();
             $table->string('name_en')->nullable();
             $table->string('desc_vi')->nullable();
