@@ -23,7 +23,7 @@ class Customer extends Authenticatable
         'full_name',
         'email',
         'phone',
-        'gender',
+        'sex_id',
         'address',
         'remember_token',
         'status',

@@ -23,5 +23,6 @@ class DatabaseSeeder extends Seeder
             LanguageSeeder::class,
             RolePermissionSeeder::class,
         ]);
+        \App\Models\Customer::factory()->count(25)->create();
     }
 }
