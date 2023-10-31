@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class NewsTag extends Model
+class Device extends Model
 {
     use HasFactory;
     /**
@@ -13,7 +13,7 @@ class NewsTag extends Model
      * @var array
      */
     protected $fillable = [
-        'news_id',
-        'tag_id',
+        'device_name',
+        'device_type',
     ];
 }

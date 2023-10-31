@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class ProductTag extends Model
 {
     use HasFactory;
+    /**
+     * Summary of fillable
+     * @var array
+     */
+    protected $fillable = [
+        'news_id',
+        'tag_id',
+    ];
 }

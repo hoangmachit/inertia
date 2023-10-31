@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class NewsTag extends Model
+class PaymentMethod extends Model
 {
     use HasFactory;
     /**
@@ -13,7 +13,10 @@ class NewsTag extends Model
      * @var array
      */
     protected $fillable = [
-        'news_id',
-        'tag_id',
+        'name_vi',
+        'name_en',
+        'desc_vi',
+        'desc_en',
+        'sort',
     ];
 }
