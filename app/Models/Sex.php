@@ -5,16 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class OrderStatus extends Model
+class Sex extends Model
 {
     use HasFactory;
-    protected $table = 'order_status';
     /**
      * Summary of fillable
      * @var array
      */
     protected $fillable = [
         'name',
-        'color',
+        'sort',
     ];
 }

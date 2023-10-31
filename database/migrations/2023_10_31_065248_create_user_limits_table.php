@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('user_limits', function (Blueprint $table) {
             $table->id();
+            $table->string('login_ip')->nullable();
+            $table->string('login_attempts')->nullable();
+            $table->string('attempt_time')->nullable();
+            $table->string('locked_time')->nullable();
             $table->timestamps();
         });
     }

@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('wards', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('city_id')->constrained('city', 'id');
+            $table->foreignId('district_id')->constrained('districts', 'id');
+            $table->string('name_vi')->nullable();
+            $table->string('name_en')->nullable();
+            $table->string('slug')->nullable();
+            $table->integer('level')->default(0);
+            $table->string('code')->nullable();
+            $table->integer('sort')->default(1);
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }

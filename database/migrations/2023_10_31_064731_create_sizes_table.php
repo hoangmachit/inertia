@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('settings', function (Blueprint $table) {
+        Schema::create('sizes', function (Blueprint $table) {
             $table->id();
+            $table->string('name_vi')->nullable();
+            $table->string('name_en')->nullable();
+            $table->string('type')->nullable();
+            $table->integer('sort')->default(1);
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('settings');
+        Schema::dropIfExists('sizes');
     }
 };

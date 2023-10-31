@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('comment_videos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('photo_id')->constrained('files', 'id');
+            $table->foreignId('comment_id')->constrained('comments', 'id');
             $table->timestamps();
         });
     }

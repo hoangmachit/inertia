@@ -9,11 +9,17 @@ class City extends Model
 {
     use HasFactory;
     /**
+     * Summary of table
+     * @var string
+     */
+    protected $table = 'city';
+    /**
      * Summary of fillable
      * @var array
      */
     protected $fillable = [
-        'name',
+        'name_vi',
+        'name_en',
         'slug',
         'level',
         'code',

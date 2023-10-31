@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('counters', function (Blueprint $table) {
             $table->id();
+            $table->string('temp')->nullable();
+            $table->string('ip')->nullable();
+            $table->foreignId('device_id')->constrained('devices', 'id');
+            $table->string('user_agent')->nullable();
+            $table->string('country')->nullable();
             $table->timestamps();
         });
     }

@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('user_onlines', function (Blueprint $table) {
             $table->id();
+            $table->string('session')->nullable();
+            $table->string('time')->nullable();
+            $table->string('ip')->nullable();
             $table->timestamps();
         });
     }

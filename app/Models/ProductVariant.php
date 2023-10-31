@@ -5,16 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class OrderStatus extends Model
+class ProductVariant extends Model
 {
     use HasFactory;
-    protected $table = 'order_status';
     /**
      * Summary of fillable
      * @var array
      */
     protected $fillable = [
-        'name',
-        'color',
+        'product_id',
+        'photo_id',
+        'size_id',
+        'color_id',
+        'code',
+        'regular_price',
+        'sale_price',
+        'discount',
+        'sort',
+        'status',
     ];
 }

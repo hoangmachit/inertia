@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('news_lists', function (Blueprint $table) {
+        Schema::create('news_items', function (Blueprint $table) {
             $table->id();
             $table->foreignId('photo_id')->nullable()->constrained('files', 'id');
+            $table->foreignId('news_list_id')->constrained('news_lists', 'id');
+            $table->foreignId('news_cat_id')->constrained('news_cats', 'id');
             $table->string('name_vi')->nullable();
             $table->string('name_en')->nullable();
             $table->string('desc_vi')->nullable();
@@ -34,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('news_lists');
+        Schema::dropIfExists('news_items');
     }
 };

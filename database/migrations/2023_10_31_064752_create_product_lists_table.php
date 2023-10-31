@@ -13,6 +13,18 @@ return new class extends Migration
     {
         Schema::create('product_lists', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('photo_id')->nullable()->constrained('files', 'id');
+            $table->string('name_vi')->nullable();
+            $table->string('name_en')->nullable();
+            $table->string('desc_vi')->nullable();
+            $table->string('desc_en')->nullable();
+            $table->string('slug_vi')->nullable();
+            $table->string('slug_en')->nullable();
+            $table->text('content_vi')->nullable();
+            $table->text('content_en')->nullable();
+            $table->integer('sort')->default(1);
+            $table->tinyInteger('status')->default(1);
+            $table->string('type')->nullable();
             $table->timestamps();
         });
     }

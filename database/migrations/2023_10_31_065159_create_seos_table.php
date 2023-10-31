@@ -13,6 +13,17 @@ return new class extends Migration
     {
         Schema::create('seos', function (Blueprint $table) {
             $table->id();
+            $table->integer('parent_id')->nullable();
+            $table->string('type')->nullable();
+            $table->string('table_name')->nullable();
+            $table->string('title_vi')->nullable();
+            $table->string('title_en')->nullable();
+            $table->string('keyword_vi')->nullable();
+            $table->string('keyword_en')->nullable();
+            $table->string('description_vi')->nullable();
+            $table->string('description_en')->nullable();
+            $table->string('schema_vi')->nullable();
+            $table->string('schema_en')->nullable();
             $table->timestamps();
         });
     }

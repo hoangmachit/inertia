@@ -11,20 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('news_lists', function (Blueprint $table) {
+        Schema::create('product_variants', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('product_id')->constrained('products', 'id');
+            $table->foreignId('size_id')->nullable()->constrained('sizes', 'id');
+            $table->foreignId('color_id')->nullable()->constrained('colors', 'id');
             $table->foreignId('photo_id')->nullable()->constrained('files', 'id');
-            $table->string('name_vi')->nullable();
-            $table->string('name_en')->nullable();
-            $table->string('desc_vi')->nullable();
-            $table->string('desc_en')->nullable();
-            $table->string('slug_vi')->nullable();
-            $table->string('slug_en')->nullable();
-            $table->text('content_vi')->nullable();
-            $table->text('content_en')->nullable();
+            $table->string('code')->nullable();
+            $table->integer('regular_price')->default(0);
+            $table->integer('sale_price')->default(0);
+            $table->float('discount')->default(0);
             $table->integer('sort')->default(1);
             $table->tinyInteger('status')->default(1);
-            $table->string('type')->nullable();
             $table->timestamps();
         });
     }
@@ -34,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('news_lists');
+        Schema::dropIfExists('product_variants');
     }
 };
