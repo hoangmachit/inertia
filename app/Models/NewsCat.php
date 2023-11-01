@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class NewsCat extends Model
 {
     use HasFactory;
+
     /**
      * Summary of fillable
      * @var array
@@ -27,4 +29,22 @@ class NewsCat extends Model
         'status',
         'type',
     ];
+
+    /**
+     * Summary of newsList
+     * @return BelongsTo
+     */
+    public function newsList(): BelongsTo
+    {
+        return $this->belongsTo(NewsList::class, 'id', 'news_list_id');
+    }
+
+    /**
+     * Summary of photo
+     * @return BelongsTo
+     */
+    public function photo(): BelongsTo
+    {
+        return $this->belongsTo(File::class, 'id', 'photo_id');
+    }
 }

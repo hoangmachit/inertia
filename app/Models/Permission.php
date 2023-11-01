@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Permission extends Model
 {
     use HasFactory;
+
     /**
      * Summary of fillable
      * @var array

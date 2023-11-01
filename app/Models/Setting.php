@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Setting extends Model
 {
     use HasFactory;
+
+    /**
+     * Summary of fillable
+     *
+     * @var array
+     */
     protected $fillable = [
         'language_id',
         'name_vi',

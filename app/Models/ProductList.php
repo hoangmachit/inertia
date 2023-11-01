@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ProductList extends Model
 {
     use HasFactory;
+
     /**
      * Summary of fillable
      * @var array
@@ -26,4 +28,13 @@ class ProductList extends Model
         'status',
         'type',
     ];
+
+    /**
+     * Summary of photo
+     * @return BelongsTo
+     */
+    public function photo(): BelongsTo
+    {
+        return $this->belongsTo(File::class, 'id', 'photo_id');
+    }
 }

@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Ward extends Model
 {
     use HasFactory;
+
     /**
      * Summary of fillable
      * @var array
@@ -23,4 +25,22 @@ class Ward extends Model
         'status',
         'sort',
     ];
+
+    /**
+     * Summary of city
+     * @return BelongsTo
+     */
+    public function city(): BelongsTo
+    {
+        return $this->belongsTo(City::class, 'id', 'city_id');
+    }
+
+    /**
+     * Summary of district
+     * @return BelongsTo
+     */
+    public function district(): BelongsTo
+    {
+        return $this->belongsTo(District::class, 'id', 'district_id');
+    }
 }
