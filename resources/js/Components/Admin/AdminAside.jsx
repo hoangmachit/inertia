@@ -131,13 +131,12 @@ export default function AdminAside() {
                     </li>
                     <li className="menu-header small text-uppercase"><span className="menu-header-text">General</span></li>
                     <li className="menu-item">
-                        <a
-                            href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
-                            target="_blank"
+                        <Link
+                            href={route('admin.setting.index')}
                             className="menu-link">
-                            <i className="menu-icon tf-icons bx bx-support"></i>
-                            <div data-i18n="Support">Support</div>
-                        </a>
+                            <i className="menu-icon tf-icons bx bx-cog"></i>
+                            <div data-i18n="Setting">Setting</div>
+                        </Link>
                     </li>
                     <li className="menu-item">
                         <a
