@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\ProductCat::factory()->count(5)->create();
         \App\Models\ProductItem::factory()->count(5)->create();
         \App\Models\ProductSub::factory()->count(5)->create();
-        \App\Models\Product::factory()->count(10)->create();
+        \App\Models\Product::factory()->count(25)->create();
         \App\Models\Page::factory()->count(10)->create();
         $this->call([
             ProductVariantSeeder::class,

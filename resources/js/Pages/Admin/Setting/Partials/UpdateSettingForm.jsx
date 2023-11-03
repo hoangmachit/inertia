@@ -1,15 +1,9 @@
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import PrimaryButton from '@/Components/PrimaryButton';
-import TextInput from '@/Components/TextInput';
-import Selected from '@/Components/Selected';
-import Textarea from '@/Components/Textarea';
+import { InputError, InputLabel, PrimaryButton, TextInput, Selected, Textarea } from '@/Components/ElementForm/';
 import { Link, useForm, usePage } from '@inertiajs/react';
 import { Transition } from '@headlessui/react';
 
 export default function UpdateSettingForm({ setting, className, languages }) {
-    console.log(">>>USFORM", setting);
-    const { data, setData, patch, errors, processing, recentlySuccessful } = useForm({
+    const { data, setData, put, errors, processing, recentlySuccessful } = useForm({
         language_id: setting.language_id,
         name_vi: setting.name_vi,
         name_en: setting.name_en,
@@ -18,11 +12,9 @@ export default function UpdateSettingForm({ setting, className, languages }) {
         google_master_tool: setting.google_master_tool,
         google_analytics: setting.google_analytics,
     });
-
     const submit = (e) => {
         e.preventDefault();
-        // patch(route('profile.update'));
-        console.log(e);
+        put(route('admin.setting.update'));
     };
 
     return (
@@ -111,7 +103,7 @@ export default function UpdateSettingForm({ setting, className, languages }) {
                         id="google_analytics"
                         className="w-full p-2 border rounded-md"
                         rows={8}
-                        value={data.google_master_tool}
+                        value={data.google_analytics}
                         onChange={(e) => setData('google_analytics', e.target.value)}
                         required
                         autoComplete="google_analytics"

@@ -8,7 +8,7 @@ export default function AdminAside() {
             <aside id="layout-menu" className="layout-menu menu-vertical menu bg-menu-theme">
                 <div className="app-brand demo">
                     <Link href={route('dashboard')} className="app-brand-link">
-                        <span className="app-brand-text demo menu-text fw-bold ms-2">Sneat</span>
+                        <span className="app-brand-text demo menu-text fw-bold ms-2">Admin Ads</span>
                     </Link>
                     <Link href={route('dashboard')} className="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
                         <i className="bx bx-chevron-left bx-sm align-middle"></i>

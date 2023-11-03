@@ -32,6 +32,7 @@ return new class extends Migration
             $table->string('type')->nullable();
             $table->integer('view')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

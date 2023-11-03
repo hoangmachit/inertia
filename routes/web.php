@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -26,10 +27,18 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::prefix('admin')->as('admin.')->group(function () {
+
+        Route::prefix('product')->as('product.')->controller(ProductController::class)->group(function () {
+            Route::get('', 'index')->name('index');
+            Route::get('{product}', 'edit')->name('edit');
+        });
+
         Route::prefix('setting')->as('setting.')->controller(SettingController::class)->group(function () {
             Route::get('', 'index')->name('index');
+            Route::put('', 'update')->name('update');
         });
     });
+
 });
 require __DIR__ . '/client.php';
 require __DIR__ . '/auth.php';

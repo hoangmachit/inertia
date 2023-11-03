@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Language;
-use App\Models\Setting;
 use App\Repositories\Language\LanguageRepositoryInterface;
 use App\Repositories\Setting\SettingRepositoryInterface;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -36,4 +38,23 @@ class SettingController extends Controller
             'languages' => $languages,
         ]);
     }
+
+    /**
+     * Summary of update
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function update(Request $request): RedirectResponse
+    {
+        $setting = $this->settingRepository->first();
+        if (!$setting) {
+            throw ValidationException::withMessages([
+                'setting' => __('Update setting fail.'),
+            ]);
+        }
+        $data = $request->all();
+        $this->settingRepository->update($setting->id, $data);
+        return Redirect::route('admin.setting.index');
+    }
+
 }
