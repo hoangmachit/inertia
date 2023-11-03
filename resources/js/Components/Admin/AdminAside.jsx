@@ -26,14 +26,31 @@ export default function AdminAside() {
                         <span className="menu-header-text">Application</span>
                     </li>
                     <li className="menu-item">
-                        <a
-                            href=""
-                            target="_blank"
-                            className="menu-link">
-                            <i className="menu-icon tf-icons bx bx-envelope"></i>
-                            <div data-i18n="Email">Email</div>
-                            <div className="badge bg-label-primary fs-tiny rounded-pill ms-auto">Pro</div>
+                        <a href="#" onClick={stopEvent} className="menu-link menu-toggle">
+                            <i className="menu-icon tf-icons bx bx-dock-top"></i>
+                            <div data-i18n="Account Settings">Product</div>
                         </a>
+                        <ul className="menu-sub"
+                            style={{
+                                display: "block"
+                            }}
+                        >
+                            <li className="menu-item">
+                                <Link href={route('admin.product.index')} className="menu-link">
+                                    <div data-i18n="Account">All Product</div>
+                                </Link>
+                            </li>
+                            <li className="menu-item">
+                                <a href="pages-account-settings-notifications.html" className="menu-link">
+                                    <div data-i18n="Notifications">Notifications</div>
+                                </a>
+                            </li>
+                            <li className="menu-item">
+                                <a href="pages-account-settings-connections.html" className="menu-link">
+                                    <div data-i18n="Connections">Connections</div>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li className="menu-item">
                         <a
@@ -65,29 +82,7 @@ export default function AdminAside() {
                             <div className="badge bg-label-primary fs-tiny rounded-pill ms-auto">Pro</div>
                         </a>
                     </li>
-                    <li className="menu-item">
-                        <a href="#" onClick={stopEvent} className="menu-link menu-toggle">
-                            <i className="menu-icon tf-icons bx bx-dock-top"></i>
-                            <div data-i18n="Account Settings">Account Settings</div>
-                        </a>
-                        <ul className="menu-sub">
-                            <li className="menu-item">
-                                <a href="pages-account-settings-account.html" className="menu-link">
-                                    <div data-i18n="Account">Account</div>
-                                </a>
-                            </li>
-                            <li className="menu-item">
-                                <a href="pages-account-settings-notifications.html" className="menu-link">
-                                    <div data-i18n="Notifications">Notifications</div>
-                                </a>
-                            </li>
-                            <li className="menu-item">
-                                <a href="pages-account-settings-connections.html" className="menu-link">
-                                    <div data-i18n="Connections">Connections</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+
                     <li className="menu-item">
                         <a href="" className="menu-link menu-toggle">
                             <i className="menu-icon tf-icons bx bx-lock-open-alt"></i>

@@ -2,23 +2,22 @@ import AdminLayout from "@/Layouts/AdminLayout";
 import AdminBreadcrumb from "@/Components/Admin/AdminBreadcrumb";
 import AdminPaginate from "@/Components/Admin/AdminPaginate";
 import { Head, Link } from "@inertiajs/react";
-export default function AdminProductIndex({ auth, products }) {
-    console.log(">>>>products", products);
-    const { data, links, prev_page_url, next_page_url } = products;
+export default function AdminCustomerIndex({ auth, customers }) {
+    const { data, links } = customers;
     return (
         <AdminLayout
             user={auth.user}
         >
-            <Head title="Product" />
+            <Head title="Customer" />
             <div className="container-xxl flex-grow-1 container-p-y">
-                <AdminBreadcrumb first="Admin" last="Product">
-                    <Link href={route('admin.product.create')} className="btn btn-primary">Add product</Link>
+                <AdminBreadcrumb first="Admin" last="Customer">
+                    <Link href={route('admin.customer.create')} className="btn btn-primary">Add customer</Link>
                 </AdminBreadcrumb>
                 <div className="row mb-4">
                     <div className="col-md-12">
                         <div className="card">
                             <div className="card-header">
-                                <h3 className="m-0">List of Product</h3>
+                                <h5 className="m-0 bold"><strong>List of Customer</strong></h5>
                             </div>
                             <div className="card-body">
                                 <div className="table-responsive text-nowrap">
@@ -27,37 +26,45 @@ export default function AdminProductIndex({ auth, products }) {
                                             <tr>
                                                 <th>#No</th>
                                                 <th>Name</th>
+                                                <th>Username</th>
+                                                <th>Email</th>
+                                                <th>Phone</th>
                                                 <th>Created at</th>
-                                                <th>Updated_at</th>
                                                 <th>Status</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody className="table-border-bottom-0">
-                                            {data?.map(product => {
-                                                return <tr key={product.id}>
+                                            {data.map((customer) => {
+                                                return <tr key={customer.id}>
                                                     <td>
-                                                        {product.id}
+                                                        {customer.id}
                                                     </td>
                                                     <td>
-                                                        <Link
-                                                            href={route('admin.product.edit', product)}>
-                                                            <strong>{product.name_vi}</strong>
+                                                        <Link href={route('admin.customer.edit', customer)}>
+                                                            <strong>{customer.full_name}</strong>
                                                         </Link>
                                                     </td>
                                                     <td>
-                                                        {product.created_at}
+                                                        {customer.username}
                                                     </td>
                                                     <td>
-                                                        {product.updated_at}
+                                                        {customer.email}
                                                     </td>
                                                     <td>
-                                                        <span className="badge badge-success">{product.status ? 'Open' : "Close"}</span>
+                                                        {customer.phone}
+                                                    </td>
+                                                    <td>
+                                                        {customer.created_at}
+                                                    </td>
+                                                    <td>
+                                                        <span
+                                                            className="badge badge-success">{customer.status ? "Open" : "Close"}</span>
                                                     </td>
                                                     <td>
                                                         <div className="dropdown">
                                                             <Link className="btn btn-secondary"
-                                                                href={route('admin.product.edit', product)}>
+                                                                href={route('admin.customer.edit', customer)}>
                                                                 <span>
                                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                                         height="16" fill="currentColor" className="bi bi-pencil-square"
@@ -69,8 +76,7 @@ export default function AdminProductIndex({ auth, products }) {
                                                                     </svg>
                                                                 </span>
                                                             </Link>
-                                                            <button className="btn btn-danger ml-2"
-                                                                href="">
+                                                            <button className="btn btn-danger ml-2">
                                                                 <span>
                                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                                         height="16" fill="currentColor" className="bi bi-trash3"
@@ -89,8 +95,10 @@ export default function AdminProductIndex({ auth, products }) {
                                 </div>
                             </div>
                             <div className="card-footer">
-                                <div className="d-flex justify-content-center">
-                                    <AdminPaginate links={links} />
+                                <div className="d-flex justify-content-center mt-3">
+                                    <div className="d-flex justify-content-center">
+                                        <AdminPaginate links={links} />
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\ProfileController;
@@ -30,7 +31,15 @@ Route::middleware('auth')->group(function () {
 
         Route::prefix('product')->as('product.')->controller(ProductController::class)->group(function () {
             Route::get('', 'index')->name('index');
+            Route::get('create', 'create')->name('create');
             Route::get('{product}', 'edit')->name('edit');
+        });
+
+        Route::prefix('customer')->as('customer.')->controller(CustomerController::class)->group(function () {
+            Route::get('', 'index')->name('index');
+            Route::get('create', 'create')->name('create');
+            Route::get('{customer}', 'edit')->name('edit');
+            Route::put('{customer}', 'update')->name('update');
         });
 
         Route::prefix('setting')->as('setting.')->controller(SettingController::class)->group(function () {

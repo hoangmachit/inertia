@@ -5,6 +5,8 @@ import forms from '@tailwindcss/forms';
 export default {
     content: [
         './resources/js/**/*.jsx',
+        './resources/js/**/**/*.jsx',
+        './resources/js/**/**/**/*.jsx',
     ],
 
     theme: {

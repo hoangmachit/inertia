@@ -24,22 +24,10 @@ export default function AdminNav() {
                     </div>
 
                     <ul className="navbar-nav flex-row align-items-center ms-auto">
-                        <li className="nav-item lh-1 me-3">
-                            <a
-                                className="github-button"
-                                href="https://github.com/themeselection/sneat-html-admin-template-free"
-                                data-icon="octicon-star"
-                                data-size="large"
-                                data-show-count="true"
-                                aria-label="Star themeselection/sneat-html-admin-template-free on GitHub"
-                            >Star</a
-                            >
-                        </li>
-
                         <li className="nav-item navbar-dropdown dropdown-user dropdown">
                             <a className="nav-link dropdown-toggle hide-arrow" href=";" data-bs-toggle="dropdown">
                                 <div className="avatar avatar-online">
-                                    <img src="../assets/img/avatars/1.png" alt="" className="w-px-40 h-auto rounded-circle" />
+                                    <img src="/assets/images/avatar.png" alt="" className="w-px-40 h-auto rounded-circle" />
                                 </div>
                             </a>
                             <ul className="dropdown-menu dropdown-menu-end">
@@ -48,7 +36,7 @@ export default function AdminNav() {
                                         <div className="d-flex">
                                             <div className="flex-shrink-0 me-3">
                                                 <div className="avatar avatar-online">
-                                                    <img src="../assets/img/avatars/1.png" alt="" className="w-px-40 h-auto rounded-circle" />
+                                                    <img src="/assets/images/avatar.png" alt="" className="w-px-40 h-auto rounded-circle" />
                                                 </div>
                                             </div>
                                             <div className="flex-grow-1">

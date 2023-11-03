@@ -408,3 +408,7 @@ html:not(.layout-menu-collapsed) .bg-menu-theme .menu-inner .menu-item .menu-lin
     background-color: #d3d3d4;
     border-color: #bcbebf;
 }
+
+.bg-menu-theme .menu-sub>.menu-item>.menu-link:before {
+    display: none;
+}
